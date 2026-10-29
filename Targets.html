@@ -1566,7 +1566,10 @@ var FORMAT={brand:[['SR position Code','Mother SKU Code','Brand Name','Value'],
     ['BG-01','Whole Sale','12000'],
     ['BG-02','Retail','15000'],
     ['BG-03','','30000']],
-  route:[['Route Name','Route Code','Value']]}[VIEW];
+  route:[['Route Code','Value'],
+    ['RT-1100','12000'],
+    ['RT-1302','15000'],
+    ['RT-1321','30000']]}[VIEW];
 btn('Download Bulk Format').addEventListener('click',function(){
   var csv=FORMAT.map(function(r){return r.map(function(c){return /[",\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c}).join(',')}).join('\r\n');
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download={brand:'brand-bulk-target.csv',channel:'channel-bulk-target.csv',route:'Route-bulk-target.csv'}[VIEW];
